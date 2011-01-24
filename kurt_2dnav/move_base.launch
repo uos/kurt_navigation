@@ -1,0 +1,18 @@
+<launch>
+
+
+  <node pkg="move_base" type="move_base" name="move_base_node">
+
+    <!-- Load common configuration files -->
+    <rosparam file="$(find kurt_2dnav)/move_base/move_base_params.yaml" command="load" />
+    <rosparam file="$(find kurt_2dnav)/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find kurt_2dnav)/move_base/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find kurt_2dnav)/move_base/base_local_planner_params.yaml" command="load" ns="TrajectoryPlannerROS" />
+
+    <!-- Load global navigation specific parameters -->
+    <rosparam file="$(find kurt_2dnav)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kurt_2dnav)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find kurt_2dnav)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+
+</launch>

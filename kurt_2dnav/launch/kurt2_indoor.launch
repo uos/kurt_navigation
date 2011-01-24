@@ -1,0 +1,16 @@
+<launch>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find kurt_description)/robots/kurt2_indoor.urdf.xacro'" />
+
+  <node pkg="robot_state_publisher" type="state_publisher" name="state_publisher" />
+
+  <include file="$(find kurt_base)/launch/kurt_indoor.launch" />
+
+  <include file="$(find kurt_bringup)/launch/sick_lms200.launch" />
+
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find kurt_2dnav)/maps/avz5floor.yaml"/>
+
+  <include file="$(find amcl)/examples/amcl_diff.launch" />
+
+  <include file="$(find kurt_2dnav)/move_base.launch" />
+
+</launch>

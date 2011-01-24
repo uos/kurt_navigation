@@ -1,0 +1,16 @@
+<package>
+  <description brief="kurt_2dnav">
+
+     kurt_2dnav
+
+  </description>
+  <author>Jochen Sprickerhof</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/kurt_2dnav</url>
+  <depend package="move_base"/>
+  <depend package="kurt_bringup"/>
+
+</package>
+
+
