@@ -1,0 +1,21 @@
+<package>
+  <description brief="katana_openloop_grasping">
+
+     katana_openloop_grasping
+
+  </description>
+  <author>Martin</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/katana_openloop_grasping</url>
+  <depend package="roscpp"/>
+  <depend package="katana_arm_navigation"/>
+  <depend package="object_manipulation_msgs"/>
+  <depend package="actionlib"/>
+  <depend package="motion_planning_msgs"/>
+  <depend package="move_arm_msgs"/>
+  <depend package="kinematics_msgs"/>
+
+</package>
+
+
