@@ -28,8 +28,8 @@ namespace katana_openloop_grasping
 {
 
 PickAndPlaceDemo::PickAndPlaceDemo() :
-  move_arm_("move_arm", true), gripper_("gripper_grasp_posture_controller", true)
-
+  move_arm_("move_arm", true), gripper_("gripper_grasp_posture_controller", true),
+      make_static_collision_map_("make_static_collision_map", true)
 {
   ros::NodeHandle nh;
 
@@ -38,6 +38,9 @@ PickAndPlaceDemo::PickAndPlaceDemo() :
 
   gripper_.waitForServer();
   ROS_INFO("Connected to gripper action server");
+
+  make_static_collision_map_.waitForServer();
+  ROS_INFO("Connected to make_static_collision_map action server");
 
   grasp_status_client_ = nh.serviceClient<object_manipulation_msgs::GraspStatus> ("gripper_grasp_status");
   if (!grasp_status_client_.waitForExistence(ros::Duration(10.0)))
@@ -88,6 +91,10 @@ void PickAndPlaceDemo::loop()
     //    if (!success)
     //      break;
 
+    success = make_static_collision_map();
+    if (!success)
+      break;
+
     //  == position 1 ==
     joint_constraints[0].position = 0.029225487499999758;
     joint_constraints[1].position = 0.11312164000000005;
@@ -106,6 +113,10 @@ void PickAndPlaceDemo::loop()
     //    success &= query_grasp_status();
     //    if (!success)
     //      break;
+
+    success = make_static_collision_map();
+    if (!success)
+      break;
 
     //  == position 2 ==
     joint_constraints[0].position = 1.0;
@@ -214,6 +225,31 @@ bool PickAndPlaceDemo::send_gripper_action(int32_t goal_type)
     return success;
   }
 }
+
+bool PickAndPlaceDemo::make_static_collision_map() {
+  ROS_INFO("Making static collision map");
+
+  collision_environment_msgs::MakeStaticCollisionMapGoal goal;
+  goal.cloud_source = "tilt_scan_cloud_filtered";
+  goal.number_of_clouds = 1;
+
+  make_static_collision_map_.sendGoal(goal);
+
+  if (!make_static_collision_map_.waitForResult(ros::Duration(30.0)))
+  {
+    ROS_ERROR("Timeout when waiting on make_static_collision_map");
+    return false;
+  }
+
+  if (make_static_collision_map_.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
+  {
+    return true;
+  }else {
+    ROS_ERROR("make_static_collision_map action failed!");
+    return false;
+  }
+}
+
 
 bool PickAndPlaceDemo::query_grasp_status()
 {
