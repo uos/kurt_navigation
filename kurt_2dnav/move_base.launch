@@ -1,6 +1,5 @@
+<?xml version="1.0"?>
 <launch>
-
-
   <node pkg="move_base" type="move_base" name="move_base_node">
 
     <!-- Load common configuration files -->
