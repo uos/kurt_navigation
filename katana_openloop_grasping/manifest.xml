@@ -4,7 +4,7 @@
      katana_openloop_grasping
 
   </description>
-  <author>Martin</author>
+  <author>Martin Günther</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/katana_openloop_grasping</url>
