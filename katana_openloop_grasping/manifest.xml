@@ -1,7 +1,8 @@
 <package>
-  <description brief="katana_openloop_grasping">
+  <description brief="Demo of open loop grasping using the Katana arm navigation pipeline">
 
-     katana_openloop_grasping
+     This package contains a small demo of open loop grasping using the
+     <a href="/wiki/katana_arm_navigation">Katana arm navigation pipeline</a>.
 
   </description>
   <author>Martin Günther</author>
