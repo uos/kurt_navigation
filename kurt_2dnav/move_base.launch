@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-  <node pkg="move_base" type="move_base" name="move_base_node">
+  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
 
     <!-- Load common configuration files -->
     <rosparam file="$(find kurt_2dnav)/move_base/move_base_params.yaml" command="load" />
