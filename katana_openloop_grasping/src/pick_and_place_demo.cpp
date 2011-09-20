@@ -39,8 +39,8 @@ PickAndPlaceDemo::PickAndPlaceDemo() :
   gripper_.waitForServer();
   ROS_INFO("Connected to gripper action server");
 
-  make_static_collision_map_.waitForServer();
-  ROS_INFO("Connected to make_static_collision_map action server");
+  // make_static_collision_map_.waitForServer();
+  // ROS_INFO("Connected to make_static_collision_map action server");
 
   grasp_status_client_ = nh.serviceClient<object_manipulation_msgs::GraspStatus> ("gripper_grasp_status");
   if (!grasp_status_client_.waitForExistence(ros::Duration(10.0)))
@@ -85,15 +85,15 @@ void PickAndPlaceDemo::loop()
     // TODO: To make the grasping work, we need to add a known object to the environment and attach
     // it to the gripper, or else disable the collision checks for the fingers
 
-    //    ROS_INFO("Sending PRE_GRASP");
-    //    success = send_gripper_action(GHPEG::PRE_GRASP);
-    //    success &= query_grasp_status();
-    //    if (!success)
-    //      break;
-
-    success = make_static_collision_map();
+    ROS_INFO("Sending PRE_GRASP");
+    success = send_gripper_action(GHPEG::PRE_GRASP);
+    success &= query_grasp_status();
     if (!success)
       break;
+
+    //success = make_static_collision_map();
+    //if (!success)
+    //  break;
 
     //  == position 1 ==
     joint_constraints[0].position = 0.029225487499999758;
@@ -107,16 +107,16 @@ void PickAndPlaceDemo::loop()
     if (!success)
       break;
 
-    //    ros::Duration(1.0).sleep();
-    //    ROS_INFO("Sending GRASP");
-    //    success = send_gripper_action(GHPEG::GRASP);
-    //    success &= query_grasp_status();
-    //    if (!success)
-    //      break;
-
-    success = make_static_collision_map();
+    ros::Duration(1.0).sleep();
+    ROS_INFO("Sending GRASP");
+    success = send_gripper_action(GHPEG::GRASP);
+    success &= query_grasp_status();
     if (!success)
       break;
+
+    //success = make_static_collision_map();
+    //if (!success)
+    //  break;
 
     //  == position 2 ==
     joint_constraints[0].position = 1.0;
@@ -130,13 +130,12 @@ void PickAndPlaceDemo::loop()
     if (!success)
       break;
 
-    //    ros::Duration(1.0).sleep();
-    //    ROS_INFO("Sending RELEASE");
-    //    success = send_gripper_action(GHPEG::RELEASE);
-    //    success &= query_grasp_status();
-    //    if (!success)
-    //      break;
-
+    ros::Duration(1.0).sleep();
+    ROS_INFO("Sending RELEASE");
+    success = send_gripper_action(GHPEG::RELEASE);
+    success &= query_grasp_status();
+    if (!success)
+      break;
   }
 }
 
