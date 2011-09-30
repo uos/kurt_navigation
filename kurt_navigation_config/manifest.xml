@@ -1,0 +1,14 @@
+<package>
+  <description brief="kurt_navigation_config">
+
+     kurt_navigation_config
+
+  </description>
+  <author>Jochen Sprickerhof</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/kurt_navigation_config</url>
+
+</package>
+
+
