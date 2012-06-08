@@ -3,7 +3,7 @@
   <!-- Throttle the voxel grid that is being published for rviz -->
   <node ns="move_base_node/local_costmap" name="voxel_grid_throttle" pkg="topic_tools" type="throttle" args="messages voxel_grid 3.0 voxel_grid_throttled" />
 
-  <node pkg="move_base" type="move_base" name="move_base_node">
+  <node pkg="move_base" type="move_base" name="move_base_node" output="screen">
 
     <!-- Use the dwa local planner for the PR2 -->
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS" />
