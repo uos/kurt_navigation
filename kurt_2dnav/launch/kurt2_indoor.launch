@@ -8,7 +8,7 @@
 
   <include file="$(find kurt_bringup)/launch/sick_lms200.launch" />
 
-  <node name="map_server" pkg="map_server" type="map_server" args="$(find kurt_2dnav)/maps/avz5floor_closed.yaml" output="screen" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find uos_maps)/maps/avz5floor_closed.yaml" output="screen" />
 
   <include file="$(find amcl)/examples/amcl_diff.launch" />
 
