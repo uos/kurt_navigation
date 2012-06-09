@@ -1,8 +1,7 @@
 <package>
-  <description brief="kurt_2dnav">
-
-     kurt_2dnav
-
+  <description brief="Global navigation for the Kurt robot.">
+     This application allows the Kurt robot to navigate autonomously with a
+     pre-specified static map. This package is modeled after pr2_2dnav.
   </description>
   <author>Jochen Sprickerhof</author>
   <license>BSD</license>
@@ -10,7 +9,6 @@
   <url>http://ros.org/wiki/kurt_2dnav</url>
   <depend package="move_base"/>
   <depend package="kurt_bringup"/>
-
 </package>
 
 
