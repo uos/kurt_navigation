@@ -6,4 +6,4 @@ inflation_radius: 0.40
 
 observation_sources: scan
 
-scan: {sensor_frame: laser, data_type: LaserScan, topic: /scan, expected_update_rate: 0.2, marking: true, clearing: true}
+scan: {data_type: LaserScan, topic: scan, expected_update_rate: 0.2, marking: true, clearing: true}
