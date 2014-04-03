@@ -1,9 +1,9 @@
 <stack>
-  <description brief="kurt_apps">kurt_apps</description>
-  <author>Maintained by Jochen Sprickerhof</author>
+  <description brief="kurt_navigation">kurt_apps</description>
+  <author>Maintained by Martin Guenther and Jochen Sprickerhof</author>
   <license>BSD</license>  
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/kurt_apps</url>
+  <url>http://ros.org/wiki/kurt_navigation</url>
   <depend stack="ros" />
 
 </stack>
