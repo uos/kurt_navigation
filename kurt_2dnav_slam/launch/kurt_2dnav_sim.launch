@@ -1,8 +1,0 @@
-<launch>
-  <include file="$(find kurt_gazebo)/launch/kurt_wg_world.launch" />
-  <include file="$(find kurt_navigation_slam)/slam_gmapping.xml" />
-  <!-- include file="$(find pr2_navigation_teleop)/teleop.xml" / -->
-  <!-- include file="$(find pr2_navigation_perception)/lasers_and_filters.xml" / -->
-  <!-- include file="$(find pr2_navigation_perception)/ground_plane.xml" / -->
-  <include file="$(find kurt_navigation_slam)/move_base.xml" />
-</launch>

@@ -8,7 +8,6 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/kurt_2dnav</url>
   <depend package="move_base"/>
-  <depend package="kurt_bringup"/>
 </package>
 
 
