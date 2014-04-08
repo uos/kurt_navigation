@@ -1,21 +1,39 @@
 TrajectoryPlannerROS:
-  max_vel_x: 0.50
-  min_vel_x: 0.10
-  max_rotational_vel: 1.5
-  min_in_place_rotational_vel: 1.0
-  acc_lim_th: 0.75
-  acc_lim_x: 0.50
-  acc_lim_y: 0.50
-
-  holonomic_robot: false
+  ## no dynamic reconfigure
+  meter_scoring: true
   yaw_goal_tolerance: 0.3
   xy_goal_tolerance: 0.15
-  goal_distance_bias: 0.8
-  path_distance_bias: 0.6
-  sim_time: 1.5
-  heading_lookahead: 0.325
-  oscillation_reset_dist: 0.05
 
-  vx_samples: 6
+  ## dynamic reconfigure
+  max_vel_x: 0.50        # actual value: 1.0 (kurt2 indoor Gazebo)
+  min_vel_x: 0.10
+  max_vel_theta: 0.86    # kurt2 indoor Gazebo
+  min_vel_theta: -0.86   # kurt2 indoor Gazebo
+  min_in_place_vel_theta: 0.4
+  acc_lim_theta: 2.5
+  acc_lim_x: 0.50
+  acc_lim_y: 0.0
+
+  holonomic_robot: false
+  gdist_scale: 0.6
+  pdist_scale: 3.2
+  occdist_scale: 0.01
+  sim_time: 1.0
+  ### sim_granularity: 0.025
+  ### angular_sim_granularity: 0.025
+  #heading_lookahead: 0.325
+  oscillation_reset_dist: 0.05
+  escape_reset_dist: 0.1
+  escape_reset_theta: 1.57079632679
+  escape_vel: -0.1
+
+  vx_samples: 8
   vtheta_samples: 20
-  dwa: false
+  dwa: true
+
+  ### heading_lookahead: 0.325
+  ### heading_scoring: false
+  ### heading_scoring_timestep: 0.8
+
+  ### simple_attractor: false
+
