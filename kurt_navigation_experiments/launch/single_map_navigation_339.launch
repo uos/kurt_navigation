@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find kurt_navigation)/launch/single_map_navigation.launch" >
+    <arg name="map_file" value="$(find kurt_navigation_experiments)/maps/avz3floor_loc_339.yaml" />
+  </include>
+</launch>

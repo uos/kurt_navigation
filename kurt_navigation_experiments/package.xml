@@ -1,0 +1,19 @@
+<package>
+  <name>kurt_navigation_experiments</name>
+  <version>0.0.1</version>
+  <description>This package contains high-level launch files to call Calvin's navigation behaviors in different environments.</description>
+  <author email="hdeeken@uni-osnabrueck.de"> Henning Deeken</author>
+  <maintainer email="hdeeken@uni-osnabrueck.de"> Henning Deeken</maintainer>
+  <license>GPL</license>
+  <url type="website">http://ros.org/wiki/kurt_navigation_experiments</url>
+
+  <build_depend>kurt_navigation</build_depend>
+  <build_depend>kurt_bringup</build_depend>
+  <build_depend>kurt_gazebo</build_depend>
+
+  <run_depend>kurt_navigation</run_depend>
+  <run_depend>kurt_bringup</run_depend>
+  <run_depend>kurt_gazebo</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

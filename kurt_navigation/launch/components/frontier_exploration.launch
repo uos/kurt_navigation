@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Set to your sensor's range -->
+    <arg name="sensor_range" default="5.0"/>
+
+    <node pkg="frontier_exploration" type="explore_client" name="explore_client" output="screen"/>
+
+    <node pkg="frontier_exploration" type="explore_server" name="explore_server" output="screen" >
+        <param name="frequency" type="double" value="1.0"/>
+        <param name="goal_aliasing" type="double" value="$(arg sensor_range)"/>
+        <rosparam file="$(find kurt_navigation)/config/common_costmap_params.yaml" command="load" ns="explore_server" />
+        <rosparam file="$(find kurt_navigation)/config/exploration_costmap_params.yaml" command="load" ns="explore_costmap" />
+    </node>
+</launch>

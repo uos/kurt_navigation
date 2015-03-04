@@ -1,11 +1,9 @@
-kurt_driver
+kurt_navigation
 =============
 
-This stack contains ROS hardware drivers, Gazebo plugins and other basic functionalities for the Kurt robot platform. Specifically, it provides: 
+This stack contains navigation components for KURT. Specifically, it provides: 
 
-* URDF descriptions for the different robot variants (package `kurt_description`),
-* drivers for the Kurt base and the onboard IMU (packages `kurt_base`, `imu_recalibration`),
-* configs and launch files for starting the Kurt robots (package `kurt_bringup`),
-* configs and launch files for simulating the Kurt robots in Gazebo (package `kurt_gazebo`),
+* config and launch files for the basic navigation behaviors (slam, map navigation) and the respective components (gmapping, amcl, etc.) (package `kurt_navigation`),
+* launch files and map data to navigate KURT the labs of UOS (both in reality and gazebo) (package `kurt_navigation_experiments`)
 
-For more information, visit the [kurt_driver ROS wiki page](http://www.ros.org/wiki/kurt_driver).
+For more information, visit the [kurt_navigation ROS wiki page](http://www.ros.org/wiki/kurt_navigation).

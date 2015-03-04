@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find kurt_navigation)/launch/components/gmapping.launch" />
+  <include file="$(find kurt_navigation)/launch/components/frontier_exploration.launch" />
+  <include file="$(find kurt_navigation)/launch/components/move_base.launch" />
+</launch>
