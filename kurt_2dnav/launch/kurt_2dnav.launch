@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find kurt_navigation_global)/amcl_node.xml" />
-  <include file="$(find kurt_navigation_global)/move_base.xml" />
-</launch>

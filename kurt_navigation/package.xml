@@ -1,0 +1,33 @@
+<package>
+  <name>kurt_navigation</name>
+  <version>0.0.1</version>
+  <description>
+    This package contains configurations and launch file to make various (2d) navigation components usable for KURT.
+    Further there are three top level launch files doing the following:
+
+    # slam.launch - starts gmapping, frontier exploration and move_base for semi-automatic 2d mapping
+    # single_map_navigation.launch - starts move_base and move_base using a single map for navigation
+    # dual_map_navigation.launch - starts move_base and move_base using two different maps for navigation and localization
+
+    As the latter two launch files require prepared maps they are intended to be included in more sophisticated launch files,
+    located elsewhere, e.g. kurt_navigation_experiments.
+  </description>
+
+  <author>Jochen Sprickerhof, Henning Deeken</author>
+  <maintainer email="jochen@sprickerhof.de">Jochen Sprickerhof</maintainer>
+  <maintainer email="hdeeken@uni-osnabrueck.de">Henning Deeken</maintainer>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/calvin_navigation</url>
+
+  <build_depend>move_base</build_depend>
+  <build_depend>amcl</build_depend>
+  <build_depend>gmapping</build_depend>
+  <build_depend>frontier_exploration</build_depend>
+
+  <run_depend>move_base</run_depend>
+  <run_depend>amcl</run_depend>
+  <run_depend>gmapping</run_depend>
+  <run_depend>frontier_exploration</run_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

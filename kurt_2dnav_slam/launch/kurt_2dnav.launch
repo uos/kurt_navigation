@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find kurt_navigation_slam)/slam_gmapping.xml" />
-  <include file="$(find kurt_navigation_slam)/move_base.xml" />
-</launch>

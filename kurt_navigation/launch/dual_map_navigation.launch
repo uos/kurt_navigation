@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="nav_map_file" />
+  <arg name="nav_map_topic" default="nav_map"/>
+  <arg name="loc_map_file" />
+  <arg name="loc_map_topic" default="loc_map"/>
+
+   <node name="nav_map_server" pkg="map_server" type="map_server" output="screen" args="$(arg nav_map_file)" >
+    <param name="frame_id" value="map"/>
+    <remap from="map" to="$(arg nav_map_topic)"/>
+  </node>
+
+   <node name="loc_map_server" pkg="map_server" type="map_server" output="screen" args="$(arg loc_map_file)" >
+    <param name="frame_id" value="map"/>
+    <remap from="map" to="$(arg loc_map_topic)"/>
+  </node>
+
+  <include file="$(find kurt_navigation)/launch/components/amcl.launch">
+    <arg name="use_map_topic" value="true"/>
+    <arg name="map_topic" value="$(arg loc_map_topic)"/>
+  </include>
+
+  <include file="$(find kurt_navigation)/launch/components/move_base.launch">
+    <arg name="map_topic" value="$(arg nav_map_topic)"/>
+  </include>
+</launch>

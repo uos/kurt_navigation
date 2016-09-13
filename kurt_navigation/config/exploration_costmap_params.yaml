@@ -1,0 +1,41 @@
+obstacle_range: 2.5
+raytrace_range: 3.0
+footprint: [[0.235,0.185],[-0.235,0.185],[-0.235,-0.185],[0.235,-0.185]]
+update_frequency: 5.0
+publish_frequency: 5.0
+transform_tolerance: 0.2
+
+#must match incoming static map
+global_frame: map
+robot_base_frame: base_link
+resolution: 0.05
+
+rolling_window: false
+track_unknown_space: true
+
+plugins:
+    - {name: static,           type: "costmap_2d::StaticLayer"}
+    - {name: explore_boundary, type: "frontier_exploration::BoundedExploreLayer"}
+    #Can disable sensor layer if gmapping is fast enough to update scans
+    - {name: sensor,           type: "costmap_2d::ObstacleLayer"}
+    - {name: inflation,        type: "costmap_2d::InflationLayer"}
+
+static:
+    #Can pull data from gmapping, map_server or a non-rolling costmap
+    map_topic: /map
+    # map_topic: move_base/global_costmap/costmap
+    subscribe_to_updates: true
+
+explore_boundary:
+    resize_to_boundary: false
+    frontier_travel_point: middle
+    #set to false for gmapping, true if re-exploring a known area
+    explore_clear_space: false
+
+sensor:
+    observation_sources: scan scan_filtered lms200 lms200_scan_filtered
+    scan: {data_type: LaserScan, topic: scan, expected_update_rate: 0.15, marking: false, clearing: true}
+    scan_filtered: {data_type: LaserScan, topic: scan_filtered, expected_update_rate: 0.15, marking: true, clearing: false}
+
+inflation:
+    inflation_radius: 0.45

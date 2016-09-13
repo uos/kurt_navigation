@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="map_file"/>
+
+  <node name="map_server" pkg="map_server" type="map_server" output="screen" args="$(arg map_file)" />
+
+  <include file="$(find kurt_navigation)/launch/components/amcl.launch" />
+  <include file="$(find kurt_navigation)/launch/components/move_base.launch" />
+</launch>
